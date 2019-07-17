@@ -44,6 +44,11 @@ if "apple" in fruitList:
   print("Yes, 'apple' is in the fruits list")
 else:
   print("Not available")
+  
+if "mango" in fruitList:
+  print("Yes, 'apple' is in the fruits list")
+else:
+  print("Not available")
  
 if b > a:
   print ("True")
