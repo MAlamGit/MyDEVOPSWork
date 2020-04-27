@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-east-1"
+  region = "ap-south-1"
 }
 
 #####
@@ -9,8 +9,8 @@ provider "aws" {
 module "vpc" {
   source = "../../modules/aws-vpc"
 
-  vpc-location                        = "Virginia"
-  namespace                           = "cloudelligent"
+  vpc-location                        = "Mumbai"
+  namespace                           = "jashwant-techie"
   name                                = "vpc"
   stage                               = "dev"
   map_public_ip_on_launch             = "true"
@@ -37,7 +37,7 @@ module "sg-tgw" {
   ingress-rule-1-to-port = 22
   ingress-rule-1-protocol = "tcp"
   ingress-rule-1-cidrs = ["119.153.141.87/32"]
-  ingress-rule-1-description = "Muhammad Asim Premises"
+  ingress-rule-1-description = "Jashwant Premises"
 
 
   # Rule-3
@@ -55,7 +55,7 @@ module "sg-tgw" {
 # EC2-Public
 module "ec2-transit-gateway-public" {
   source                        = "../../modules/aws-ec2"
-  namespace                     = "cloudelligent"
+  namespace                     = "jashwant-techie"
   stage                         = "dev"
   name                          = "transit-gateway"
   key_name                      = "transit-gateway"
@@ -76,7 +76,7 @@ module "ec2-transit-gateway-public" {
 module "transit-gateway" {
   source                             = "../../modules/aws-transit-gateway"
 
-  transit_gateway_name                                                   = "cloudelligent-transit-gateway"
+  transit_gateway_name                                                   = "jashwant-techie-transit-gateway"
   auto_accept_shared_attachments                                         = "enable"
   amazon_side_asn                                                        = "64512"
   vpn_ecmp_support                                                       = "enable"
@@ -87,7 +87,7 @@ module "transit-gateway" {
   subnet_ids                                                             = module.vpc.private-subnet-ids
   # aws_ec2_transit_gateway_vpc_attachment
   vpc_id                                                                 =  module.vpc.vpc-id
-  aws_ec2_transit_gateway_vpc_attachment_name                            = "cloudelligent-tgw-vpc-dev-attahments"
+  aws_ec2_transit_gateway_vpc_attachment_name                            = "jashwant-techie-tgw-vpc-dev-attahments"
   transit_gateway_default_route_table_association                        = "true"
   transit_gateway_default_route_table_propagation                        = "true"
 }

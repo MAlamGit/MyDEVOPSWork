@@ -5,8 +5,8 @@
 module "vpc-home" {
   source = "../../modules/aws-vpc"
 
-  vpc-location                        = "Virginia"
-  namespace                           = "cloudelligent-home"
+  vpc-location                        = "Mumbai"
+  namespace                           = "jashwant-techie-home"
   name                                = "vpc"
   stage                               = "dev"
   map_public_ip_on_launch             = "true"
@@ -34,7 +34,7 @@ module "sg-tgw-vpc-home" {
   ingress-rule-1-to-port = 22
   ingress-rule-1-protocol = "tcp"
   ingress-rule-1-cidrs = ["10.11.1.160/32"]
-  ingress-rule-1-description = "Muhammad Asim Premises"
+  ingress-rule-1-description = "Jashwant Premises"
 
 
   # Rule-3
@@ -53,7 +53,7 @@ module "sg-tgw-vpc-home" {
 
 module "ec2-transit-gateway-private" {
   source                        = "../../modules/aws-ec2"
-  namespace                     = "cloudelligent"
+  namespace                     = "jashwant-techie"
   stage                         = "dev"
   name                          = "transit-gateway"
   key_name                      = "transit-gateway-home-vpc"
@@ -78,7 +78,7 @@ module "transit-gateway-vpc-home-attachment" {
   subnet_ids                                                             = module.vpc-home.private-subnet-ids
   # aws_ec2_transit_gateway_vpc_attachment
   vpc_id                                                                 =  module.vpc-home.vpc-id
-  aws_ec2_transit_gateway_vpc_attachment_name                            = "cloudelligent-tgw-vpc-home-attahments"
+  aws_ec2_transit_gateway_vpc_attachment_name                            = "jashwant-techie-tgw-vpc-home-attahments"
   transit_gateway_default_route_table_association                        = "true"
   transit_gateway_default_route_table_propagation                        = "true"
 }
