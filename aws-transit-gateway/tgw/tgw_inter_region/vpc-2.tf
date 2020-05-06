@@ -1,5 +1,5 @@
 ###
-# vpv-home
+# vpc-home
 ###
 
 module "vpc-home" {

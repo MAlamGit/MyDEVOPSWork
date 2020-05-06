@@ -1,0 +1,1 @@
+java -cp bin;lib/* org.testng.annotations.Test testng.xml

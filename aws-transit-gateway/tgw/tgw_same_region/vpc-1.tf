@@ -61,7 +61,7 @@ module "ec2-transit-gateway-public" {
   key_name                      = "transit-gateway"
   public_key                    = file("../../modules/secrets/transit-gateway.pub")
   instance_count                = 1
-  ami                           = "ami-0fc61db8544a617ed"
+  ami                           = "ami-04b2519c83e2a7ea5"
   instance_type                 = "t3a.medium"
   associate_public_ip_address   = "true"
   root_volume_size              = 8
